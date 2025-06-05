@@ -1,0 +1,10 @@
+program exemplo;
+const x = 10;
+var a, b: integer;
+begin
+  read(a);
+  if a > x then
+    write(a)
+  else
+    write(x);
+end.
