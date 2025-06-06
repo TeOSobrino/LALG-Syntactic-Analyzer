@@ -1,4 +1,10 @@
 # LALG-Compiler
+## Alunos
+Téo Sobrino (12557192)
+ 
+Miller Anancleto
+
+## Disciplina SCC0217 - Compiladores
 ## Uso 
 
 ```bash
