@@ -478,7 +478,7 @@ numero:
 
 %%
 
-// Implmementação da árvore sintática abstrata
+// Implementação da árvore sintática abstrata
 ASTNode* create_node(const char* type, const char* value) {
     ASTNode* node = malloc(sizeof(ASTNode));
     if (!node) {
@@ -497,10 +497,8 @@ void add_child(ASTNode* parent, ASTNode* child) {
     if (!parent || !child) return;
     
     if (parent->child_count >= parent->child_capacity) {
-        parent->child_capacity = parent->child_capacity == 0 ? 4\
-         : parent->child_capacity * 2;
-        parent->children = realloc(parent->children,\
-         parent->child_capacity * sizeof(ASTNode*));
+        parent->child_capacity = parent->child_capacity == 0 ? 4 : parent->child_capacity * 2;
+        parent->children = realloc(parent->children, parent->child_capacity * sizeof(ASTNode*));
         if (!parent->children) {
             perror("Falha ao realocar memória para os filhos do nó");
             exit(EXIT_FAILURE);
@@ -538,27 +536,19 @@ void free_ast(ASTNode* node) {
 
 void print_usage(void)
 {
-  printf("lalgc: Compilador de Pascal Simplificado (LALG).\
-\n\tElaborado por Téo Sobrino Alves & Miller Anacleto Rocha.\
-\n\tDisciplina SCC0217 - Compiladores, 2025.\
-\n\nModos de Uso:\n\
-\t./lalgc <opções> <arquivo_lalg>\n\t\
-\tExemplo simples: ./lalgc -i <arquivo_lalg>\n\
-Use a opção -h para ver o menu completo de opções.\n\n");
+  printf("lalgc: Compilador de Pascal Simplificado (LALG).\n\tElaborado por Téo Sobrino Alves & Miller Anacleto Rocha.\n\tDisciplina SCC0217 - Compiladores, 2025.\n\nModos de Uso:\n\t./lalgc <opções> <arquivo_lalg>\n\t\tExemplo simples: ./lalgc -i <arquivo_lalg>\nUse a opção -h para ver o menu completo de opções.\n\n");
 }
 
 void print_options(void)
 {
     printf("Opções:\n\t-h, --help\t\tImprime este menu de ajuda e termina.\n");
     printf("\t-i, --input <arquivo> \tIdentifica o arquivo de entrada.\n");
-    printf("\t-t --tree [arquivo] \tImprime a árvore sintática abstrata.\
-Caso nenhum arquivo seja fornecido, imprime em stdout.\n\n");
+    printf("\t-t --tree [arquivo] \tImprime a árvore sintática abstrata. Caso nenhum arquivo seja fornecido, imprime em stdout.\n\n");
 }
 
 void print_invalid(char** argv, int arg_num)
 {
-    printf("Opção '%s' inválida.\n\tAjuda: ./lalgc -h ou --help\n\t\
-modo de uso: ./lalgc -i nome_arquivo_lalg\n\n", argv[arg_num]);
+    printf("Opção '%s' inválida.\n\tAjuda: ./lalgc -h ou --help\n\tmodo de uso: ./lalgc -i nome_arquivo_lalg\n\n", argv[arg_num]);
 }
 
 FILE* parse_argv(char** argv, int argc, int arg_num, FILE* tester)
@@ -573,8 +563,7 @@ FILE* parse_argv(char** argv, int argc, int arg_num, FILE* tester)
         if(argv[arg_num][1] == 'i' || (argv[arg_num][1] == '-' && argv[arg_num][2] == 'i')){//entrada
             tester = fopen(argv[arg_num+1], "r");
             if(!tester){ 
-            fprintf(stderr, "\tNão foi possível abrir o arquivo '%s'.\n",\
-            argv[arg_num+1]);
+            fprintf(stderr, "\tNão foi possível abrir o arquivo '%s'.\n", argv[arg_num+1]);
             exit(1);
             }
             return tester;
@@ -684,4 +673,3 @@ int main(int argc, char** argv) {
 
     return 0;
 }
-

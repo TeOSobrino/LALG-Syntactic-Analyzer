@@ -33,14 +33,15 @@ ws          [ \t\r]+
 {digit}         { yylval.ival = atoi(yytext); return NUM_INT; }
 {id}            { yylval.sval = strdup(yytext); return IDENT; }
 
+":="            { return ASSIGN; }
+"<>"            { return NE; }
+">="            { return GE; }
+"<="            { return LE; }
 "+"             { return '+'; }
 "-"             { return '-'; }
 "*"             { return '*'; }
 "/"             { return '/'; }
 "="             { return '='; }
-"<>"            { return NE; }
-">="            { return GE; }
-"<="            { return LE; }
 ">"             { return '>'; }
 "<"             { return '<'; }
 ":"             { return ':'; }
@@ -54,12 +55,10 @@ ws          [ \t\r]+
 {ws}            { /* ignora espaço */ }
 "{"[^}]*"}"     { /* ignora comentário */ }
 
-.               { printf("Erro Léxico: Caractere inválido próximo à linha\
- %d: %s\n", yylineno, yytext); }
+.               { printf("Erro Léxico: Caractere inválido próximo à linha %d: %s\n", yylineno, yytext); }
 
 %%
 
 int yywrap() {
     return 1;
 }
- 

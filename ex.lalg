@@ -3,6 +3,7 @@ const x = 10;
 var a, b, c: integer;
 begin
   read(a);
+  a := b;
   if a < x then
   begin
     write(a);
