@@ -7,7 +7,8 @@ make all
 ```
 The input file must be passed after the flag -i (or --input).
 
-The output file (optional) is an AST generated when parsing the code and represents the rules applied in high-level.
+The output file (optional) is an AST, to generate this file specify the '-t' flag.
+The AST is generated when parsing the code and represents the rules being applied in a high-level fashion.
 
 TODO:
 Comments, Docs, Rewrite code and, maybe improve error mesages, colors, style, etc.
