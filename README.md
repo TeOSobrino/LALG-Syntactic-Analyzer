@@ -1,14 +1,14 @@
 # LALG-Compiler
-## Usage 
+## Uso 
 
 ```bash
 make all
-./lalgc -i <input_file> [ -t [AST_output]] 
+./lalgc -i <arquivo_de_entrada> [ -t [arquivo_de_saída]] 
 ```
-The input file must be passed after the flag -i (or --input).
+O caminho para o arquivo de entrada deve ser especificado depois da flag -i (ou --input)
 
-The output file (optional) is an AST, to generate this file specify the '-t' flag.
-The AST is generated when parsing the code and represents the rules being applied in a high-level fashion.
+O arquivo de saída (opcional) é uma ASA. Para gerar este arquivo especifique a flag -t.
+A ASA é gerada durante o parsing do código e representa a regras de derivação gramatical em uma visão de alto-nível.
 
-TODO:
-Comments, Docs, Rewrite code and, maybe improve error mesages, colors, style, etc.
+## TODO:
+Mais comentários, melhorar a documentação, fazer mais testes, melhorar as mensagens de erros, talvez usar cores, melhorar o estilo, etc.
