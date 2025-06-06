@@ -1,10 +1,13 @@
 program exemplo;
 const x = 10;
-var a, b: integer;
+var a, b, c: integer;
 begin
   read(a);
-  if a > x then
-    write(a)
+  if a < x then
+  begin
+    write(a);
+  end
   else
     write(x);
+  read(b);
 end.
