@@ -52,7 +52,7 @@ ASTNode* root = NULL;
 %type <node> variaveis mais_var proc_decl parametros lista_par mais_par corpo_p dc_loc
 %type <node> comandos comando_lista comando condicao expressao termo fator numero
 %type <node> relacao outros_termos op_ad mais_fatores op_mul op_un tipo_var
-%type <node> lista_arg argumentos mais_ident
+%type <node> lista_arg argumentos mais_ident write_list write_item
 
 %left '+' '-'
 %left '*' '/'
@@ -310,12 +310,27 @@ comando_lista:
     }
 ;
 
+write_list:
+    write_item {
+        $$ = $1;
+    }
+;
+
+write_item:
+    variaveis {
+        $$ = $1;
+    }
+    | expressao {
+        $$ = $1;
+    }
+;
+
 comando:
     READ '(' variaveis ')' {
-        $$ = create_node("READ", NULL);
+        $$ = create_node("read", NULL);
         add_child($$, $3);
     }
-    | WRITE '(' variaveis ')' {
+    | WRITE '(' write_list ')' {
         $$ = create_node("write", NULL);
         add_child($$, $3);
     }

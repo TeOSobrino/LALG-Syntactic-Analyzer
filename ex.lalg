@@ -1,14 +1,11 @@
-program exemplo;
-const x = 10;
-var a, b, c: integer;
+program vazio;
+var flag: integer;
 begin
-  read(a);
-  a := b;
-  if a < x then
+  read(flag);
+  if flag = 1 then
   begin
-    write(a);
+    { bloco propositalmente vazio }
   end
   else
-    write(x);
-  read(b);
+    write(flag);
 end.

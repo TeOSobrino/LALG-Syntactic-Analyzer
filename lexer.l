@@ -4,8 +4,9 @@
 #include <string.h>
 %}
 
-digit       [0-9]+
-real        {digit}"."{digit}+
+digit       [0-9]
+integer     {digit}+
+real        {integer}"."{integer}
 id          [a-zA-Z_][a-zA-Z0-9_]*
 ws          [ \t\r]+
 
@@ -30,7 +31,7 @@ ws          [ \t\r]+
 "real"          { return REAL; }
 
 {real}          { yylval.fval = atof(yytext); return NUM_REAL; }
-{digit}         { yylval.ival = atoi(yytext); return NUM_INT; }
+{integer}       { yylval.ival = atoi(yytext); return NUM_INT; }
 {id}            { yylval.sval = strdup(yytext); return IDENT; }
 
 ":="            { return ASSIGN; }
