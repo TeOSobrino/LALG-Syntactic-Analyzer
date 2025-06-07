@@ -135,9 +135,15 @@ const_item:
 ;
 
 dc_v:
-    VAR lista_var {
-        $$ = create_node("DECLARAÇÃO_VARS", NULL);
-        add_child($$, $2);
+    VAR lista_var dc_v {
+        if ($3) {
+            $$ = create_node("DECLARAÇÃO_VARS", NULL);
+            add_child($$, $2);
+            add_child($$, $3);
+        } else {
+            $$ = create_node("DECLARAÇÃO_VARS", NULL);
+            add_child($$, $2);
+        }
     }
     | /* vazio */ { $$ = NULL; }
 ;
