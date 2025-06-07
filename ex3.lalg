@@ -1,0 +1,9 @@
+program expressoes;
+const a = 2;
+      b = 3;
+var resultado: integer;
+begin
+  resultado := (a + b) * (a - b);
+  write(resultado);
+end.
+

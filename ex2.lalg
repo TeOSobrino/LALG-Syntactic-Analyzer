@@ -1,0 +1,14 @@
+program decisao;
+var nota: integer;
+begin
+  read(nota);
+  if nota >= 60 then
+  begin
+    if nota >= 90 then
+      write(10)
+    else
+      write(7);
+  end
+  else
+    write(0);
+end.

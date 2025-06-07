@@ -1,0 +1,9 @@
+program operacoes;
+var x, y, z: integer;
+begin
+  read(x);
+  read(y);
+  z := x * y + 10;
+  write(z);
+end.
+
