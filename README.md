@@ -37,16 +37,18 @@ Produzindo logs, tanto da saída (arquivo out[0-7].ast) quanto logs de possívei
 make test-output
 ```
 
-### Para criação de testes
+## Criação de testes
+
+### De forma integrada
 
 Para criar arquivos personalizados, altera algum dos exemplos entre 0 e 7, ou crie um novo arquivo e modifique o range dos for loops no makefile (linha 22 para o silent e 47 para o verbose). Depois faça o teste usando os comandos descritos acima.
 
-### Para executar um teste de forma separada
+### De forma separada
 Crie um arquivo de teste, ex: (/my/file/test.lalg) e use o seguinte comando, dentro da pasta com o executável 
 ```bash
 ./lalgc -i /my/file/test.lalg [-t arvore_saida_opcional]
 ```
-### Para limpar a pasta 
+## Limpar a pasta 
 
 Remove a pasta output, o executável e os arquivos intermediários gerados pelo yacc e flex.
 ```bash
