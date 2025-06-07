@@ -46,7 +46,12 @@ Crie um arquivo de teste, ex: (/my/file/test.lalg) e use o seguinte comando, den
 ```bash
 ./lalgc -i /my/file/test.lalg [-t arvore_saida_opcional]
 ```
+### Para limpar a pasta 
 
+Remove a pasta output, o executável e os arquivos intermediários gerados pelo yacc e flex.
+```bash
+make clean
+```
 O caminho para o arquivo de entrada deve ser especificado depois da flag -i (ou --input)
 
 O arquivo de saída (opcional) é uma ASA. Para gerar este arquivo especifique a flag -t.
