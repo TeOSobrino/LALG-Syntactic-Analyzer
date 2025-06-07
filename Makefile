@@ -37,18 +37,18 @@ test: $(BINARY)
 
 test-output: $(BINARY)
 	@mkdir -p output
-	# Detect Unicode support
-	if locale | grep -q 'UTF-8'; then \
+	@# Detect Unicode support
+	@if locale | grep -q 'UTF-8'; then \
 		PASS_SYMBOL="✅"; FAIL_SYMBOL="❌"; \
 	else \
 		PASS_SYMBOL="[ OK ]"; FAIL_SYMBOL="[FAIL]"; \
 	fi; \
 	passed=0; failed=0; \
 	for i in 0 1 2 3 4 5 6 7; do \
-		output=$$(./$(BINARY) -i ex/ex$$i.lalg -t output/out$$i.ast 2>&1); \
-		if echo "$$output" | grep -qi 'erro'; then \
+		output=$$(./$(BINARY) -i ex/ex$$i.lalg -t output/out$$i.ast >output/out$$i.log 2>&1); \
+		if cat output/out$$i.log | grep -qi 'erro'; then \
 			echo "$$FAIL_SYMBOL UNEXPECTED ERROR in ex/ex$$i.lalg:"; \
-			echo "$$output"; \
+			cat output/out$$i.log; \
 			failed=$$((failed + 1)); \
 		else \
 			echo "$$PASS_SYMBOL PASSED: ex/ex$$i.lalg → output/out$$i.ast"; \
