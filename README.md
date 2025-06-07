@@ -7,14 +7,47 @@ Miller Anancleto (13727954)
 ## Disciplina SCC0217 - Compiladores
 ## Uso 
 
+### Clonar o repositório
+
+```bash
+git clone git@github.com:TeOSobrino/LALG-Compiler.git
+cd LALG-Compiler
+```
+
+### Criar o executável, 
+
+Cria o arquivo executável do parser (lalgc) juntamente com os arquivos gerados pelo lexer (lex.yy.c) e parser (y.tab.c e y.tab.h).
+
 ```bash
 make all
-./lalgc -i <arquivo_de_entrada> [ -t [arquivo_de_saída]] 
 ```
+### Executar os testes:
+
+#### De forma silenciosa:
+
+Sem produzir arquivos de saída (árvores sintáticas), com exibição dos erros em tela apenas.
+```bash
+make test
+```
+
+#### De forma verbosa
+
+Produzindo logs, tanto da saída (arquivo out[0-7].ast) quanto logs de possíveis erros de sintaxe (out[0-7].log) na pasta output
+```bash
+make test-output
+```
+
+### Para criação de testes
+
+Para criar arquivos personalizados, altera algum dos exemplos entre 0 e 7, ou crie um novo arquivo e modifique o range dos for loops no makefile (linha 22 para o silent e 47 para o verbose). Depois faça o teste usando os comandos descritos acima.
+
+### Para executar um teste de forma separada
+Crie um arquivo de teste, ex: (/my/file/test.lalg) e use o seguinte comando, dentro da pasta com o executável 
+```bash
+./lalgc -i /my/file/test.lalg [-t arvore_saida_opcional]
+```
+
 O caminho para o arquivo de entrada deve ser especificado depois da flag -i (ou --input)
 
 O arquivo de saída (opcional) é uma ASA. Para gerar este arquivo especifique a flag -t.
 A ASA é gerada durante o parsing do código e representa a regras de derivação gramatical em uma visão de alto-nível.
-
-## TODO:
-Mais comentários, melhorar a documentação, fazer mais testes, melhorar as mensagens de erros, talvez usar cores, melhorar o estilo, etc.
