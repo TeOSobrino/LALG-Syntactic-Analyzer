@@ -5,6 +5,7 @@ Téo Sobrino (12557192)
 Miller Anancleto (13727954)
 
 ## Disciplina SCC0217 - Compiladores
+
 ## Uso 
 
 ### Clonar o repositório
@@ -14,13 +15,32 @@ git clone git@github.com:TeOSobrino/LALG-Compiler.git
 cd LALG-Compiler
 ```
 
-### Criar o executável, 
+### Criar o executável do compilador 
 
 Cria o arquivo executável do parser (lalgc) juntamente com os arquivos gerados pelo lexer (lex.yy.c) e parser (y.tab.c e y.tab.h).
 
 ```bash
 make all
 ```
+
+## Compilar um programa
+Escreva seu programa .lalgc, ex: (/my/file/test.lalg) e use o seguinte comando, dentro da pasta com o binário do compilador  
+
+```bash
+./lalgc -i /my/file/test.lalg [-t arvore_saida_opcional]
+```
+O caminho para o arquivo de entrada deve ser especificado depois da flag -i (ou --input)
+
+O arquivo de saída (opcional) é uma ASA. Para gerar este arquivo especifique a flag -t.
+A ASA é gerada durante o parsing do código e representa a regras de derivação gramatical em uma visão de alto-nível.
+
+### Caso ocorra algum problema para gerar o arquivo:
+
+```bash
+./lalgc -h
+```
+Exibe uma ajuda para o programa.
+
 ### Executar os testes:
 
 #### De forma silenciosa:
